@@ -1773,13 +1773,13 @@ footer { background: var(--dark); padding: 28px 20px 20px; color: #888; }
    ================================================================ */
 /* ── DATOS: CONDIMENTOS ── */
 const CONDIMENTOS = [
-  { id:'oregano',         marca:'Reina Mora', nombre:'Orégano',                    tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Orégano seco de hoja entera, intenso y aromático. Imprescindible para pizzas, carnes y pastas.', img:null } /* 📷 assets/img/cond/cond-oregano.jpg */,
-  { id:'aji-molido',      marca:'Reina Mora', nombre:'Ají Molido',                 tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Ají rojo molido de molienda media, con color intenso y picor moderado. Ideal para embutidos, guisos y asados.', img:null } /* 📷 assets/img/cond/cond-ajimolido.jpg */,
-  { id:'pimienta-blanca', marca:'Reina Mora', nombre:'Pimienta Blanca Molida',     tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Pimienta blanca de aroma delicado y sabor suave. Perfecta para salsas blancas, carnes de ave y preparaciones gourmet.', img:null } /* 📷 assets/img/cond/cond-pimientablanca.jpg */,
-  { id:'pimienta-negra',  marca:'Reina Mora', nombre:'Pimienta Negra Molida',      tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Pimienta negra de molienda fina con aroma pronunciado. La especia más versátil de la cocina profesional.', img:null } /* 📷 assets/img/cond/cond-pimientanegra.jpg */,
-  { id:'provenzal',       marca:'Reina Mora', nombre:'Provenzal',                  tipo:'mezcla',     formato:'Sachet 25g · Caja mayorista', desc:'Mezcla de ajo y perejil deshidratado. El condimento clásico de la gastronomía argentina para carnes, panes y marinadas.', img:null } /* 📷 assets/img/cond/cond-provenzal.jpg */,
-  { id:'chimichurri',     marca:'Reina Mora', nombre:'Condimento para Chimichurri',tipo:'mezcla',     formato:'Sachet 25g · Caja mayorista', desc:'Mezcla especial con ajo, perejil, orégano, ají y pimienta negra. Sólo agregá aceite y vinagre para un chimichurri auténtico.', img:null } /* 📷 assets/img/cond/cond-chimichurri.jpg */,
-  { id:'ajo-triturado',   marca:'Reina Mora', nombre:'Ajo Triturado',              tipo:'condimento', formato:'Sachet · Caja mayorista',     desc:'Ajo deshidratado triturado de alta concentración de sabor. Reduce tiempos de cocción sin resignar intensidad aromática.', img:null } /* 📷 assets/img/cond/cond-ajotriturado.jpg */
+  { id:'oregano',         marca:'Reina Mora', nombre:'Orégano',                    tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Orégano seco de hoja entera, intenso y aromático. Imprescindible para pizzas, carnes y pastas.', img:'assets/img/cond/cond-oregano.jpg' },
+  { id:'aji-molido',      marca:'Reina Mora', nombre:'Ají Molido',                 tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Ají rojo molido de molienda media, con color intenso y picor moderado. Ideal para embutidos, guisos y asados.', img:'assets/img/cond/cond-ajimolido.jpg' },
+  { id:'pimienta-blanca', marca:'Reina Mora', nombre:'Pimienta Blanca Molida',     tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Pimienta blanca de aroma delicado y sabor suave. Perfecta para salsas blancas, carnes de ave y preparaciones gourmet.', img:'assets/img/cond/cond-pimientablanca.jpg' },
+  { id:'pimienta-negra',  marca:'Reina Mora', nombre:'Pimienta Negra Molida',      tipo:'especia',    formato:'Sachet 25g · Caja mayorista', desc:'Pimienta negra de molienda fina con aroma pronunciado. La especia más versátil de la cocina profesional.', img:'assets/img/cond/cond-pimientanegra.jpg' },
+  { id:'provenzal',       marca:'Reina Mora', nombre:'Provenzal',                  tipo:'mezcla',     formato:'Sachet 25g · Caja mayorista', desc:'Mezcla de ajo y perejil deshidratado. El condimento clásico de la gastronomía argentina para carnes, panes y marinadas.', img:'assets/img/cond/cond-provenzal.jpg' },
+  { id:'chimichurri',     marca:'Reina Mora', nombre:'Condimento para Chimichurri',tipo:'mezcla',     formato:'Sachet 25g · Caja mayorista', desc:'Mezcla especial con ajo, perejil, orégano, ají y pimienta negra. Sólo agregá aceite y vinagre para un chimichurri auténtico.', img:'assets/img/cond/cond-chimichurri.jpg' },
+  { id:'ajo-triturado',   marca:'Reina Mora', nombre:'Ajo Triturado',              tipo:'condimento', formato:'Sachet · Caja mayorista',     desc:'Ajo deshidratado triturado de alta concentración de sabor. Reduce tiempos de cocción sin resignar intensidad aromática.', img:'assets/img/cond/cond-ajotriturado.jpg' }
 ];
 
 const TIPO_BADGE = { especia:'badge-especia', condimento:'badge-condimento', mezcla:'badge-mezcla' };
@@ -1841,8 +1841,7 @@ const YERBAS = [
     tags: ['playadito', 'tradicional'],
     formato: '1 kg · Caja mayorista',
     desc: 'Yerba con palo, sabor balanceado y aroma intenso. Elaborada en Colonia Liebig, Corrientes. Sin gluten.',
-    /* 📷 FOTO: assets/img/yerbas/yerba-playadito.jpg */
-    img: null
+    img: 'assets/img/yerbas/yerba-playadito.jpg'
   },
   /* Taragüi */
   {
@@ -1853,8 +1852,7 @@ const YERBAS = [
     tags: ['taragui', 'tradicional'],
     formato: '500 g · Caja mayorista',
     desc: 'Yerba elaborada con palo, libre de gluten y sin TACC. Sabor clásico, con estacionamiento natural. Industria Argentina — Las Marías.',
-    /* 📷 FOTO: assets/img/yerbas/yerba-taragui.jpg */
-    img: null
+    img: 'assets/img/yerbas/yerba-taragui.jpg'
   },
   /* Piporé Tradicional */
   {
@@ -1865,8 +1863,7 @@ const YERBAS = [
     tags: ['pipore', 'tradicional'],
     formato: '1 kg · Caja mayorista',
     desc: 'Yerba mate elaborada con palo, estacionamiento natural. Sin gluten, sin TACC. Blend clásico, cuerpo redondo y sabor intenso.',
-    /* 📷 FOTO: assets/img/yerbas/yerba-piporetrad.jpg */
-    img: null
+    img: 'assets/img/yerbas/yerba-piporetrad.jpg'
   },
   /* Piporé Suave */
   {
@@ -1877,8 +1874,7 @@ const YERBAS = [
     tags: ['pipore', 'suave'],
     formato: '1 kg · Caja mayorista',
     desc: 'Variedad más suave y menos amarga. Con palo, estacionamiento natural. Ideal para quienes prefieren un mate más delicado.',
-    /* 📷 FOTO: assets/img/yerbas/yerba-piporesuave.jpg */
-    img: null
+    img: 'assets/img/yerbas/yerba-piporesuave.jpg'
   }
 ];
 
@@ -1951,10 +1947,10 @@ const WINES = [
   { bodega:'Tornaghi', linea:'Magnum',          nombre:'Clásico',         varietal:'Blend de tintas',  tipo:'blend',  formato:'Magnum 1.5L', desc:'Blend expresivo con notas de frutos rojos maduros, especias suaves y final persistente. Ideal para eventos.', tags:['tornaghi','blend'], img:'vino-tornaghi-clasico.jpg' },
   { bodega:'Tornaghi', linea:'Magnum',          nombre:'Carlon',          varietal:'Blend tinto',      tipo:'tinto',  formato:'Magnum 1.5L', desc:'Carácter robusto y suave, textura aterciopelada y aromas de la tradición vitivinícola mendocina.', tags:['tornaghi','tinto'], img:'vino-tornaghi-carlon.jpg' },
   { bodega:'Tornaghi', linea:'Magnum',          nombre:'Malbec',          varietal:'Malbec',           tipo:'tinto',  formato:'Magnum 1.5L', desc:'El emblema argentino en formato especial. Violáceo intenso, ciruela y chocolate negro. Maridaje con carnes rojas.', tags:['tornaghi','tinto'], img:'vino-tornaghi-malbec.jpg' },
-  { bodega:'Tornaghi', linea:'Magnum',          nombre:'Torrontés',       varietal:'Torrontés',        tipo:'blanco', formato:'Magnum 1.5L', desc:'Floral y fresco, bouquet de rosas y durazno blanco. Temperatura ideal 8°C. Excelente para eventos.', tags:['tornaghi','blanco'], img:'vino-tornaghi-torrentes.jpg' },
+  { bodega:'Tornaghi', linea:'Magnum',          nombre:'Torrontés',       varietal:'Torrontés',        tipo:'blanco', formato:'Magnum 1.5L', desc:'Floral y fresco, bouquet de rosas y durazno blanco. Temperatura ideal 8°C. Excelente para eventos.', tags:['tornaghi','blanco'], img:'vino-tornaghi-torrontes.jpg' },
   { bodega:'Tornaghi', linea:'Familia',         nombre:'Malbec Reserva',  varietal:'Malbec',           tipo:'tinto',  formato:'750 ml', desc:'Cuerpo medio-alto, taninos suaves y acidez equilibrada. Crianza en roble francés.', tags:['tornaghi','tinto'], img:'vino-tornaghi-malbecreserva.jpg' },
   { bodega:'Tornaghi', linea:'Familia',         nombre:'Malbec Clásico',  varietal:'Malbec',           tipo:'tinto',  formato:'750 ml', desc:'Entrada accesible al Malbec mendocino: frutal, jugoso y de fácil consumo.', tags:['tornaghi','tinto'], img:'vino-tornaghi-malbecclasico.jpg' },
-  { bodega:'Tornaghi', linea:'Familia',         nombre:'Torrontés',       varietal:'Torrontés',        tipo:'blanco', formato:'750 ml', desc:'Aromas de flores blancas y frutas tropicales, paladar fresco y seco.', tags:['tornaghi','blanco'], img:'vino-tornaghi-torrentes.jpg' },
+  { bodega:'Tornaghi', linea:'Familia',         nombre:'Torrontés',       varietal:'Torrontés',        tipo:'blanco', formato:'750 ml', desc:'Aromas de flores blancas y frutas tropicales, paladar fresco y seco.', tags:['tornaghi','blanco'], img:'vino-tornaghi-torrontesfamilia.jpg' },
   { bodega:'Tornaghi', linea:'Familia · Tardío',nombre:'Tardío',          varietal:'Cosecha tardía',   tipo:'blanco', formato:'750 ml', desc:'Dulce natural con notas de miel, higo seco y vainilla. Para postres o quesos.', tags:['tornaghi','blanco'], img:'vino-tornaghi-tardio.jpg' },
   { bodega:'Tornaghi', linea:'Familia',         nombre:'Rosé',            varietal:'Rosado seco',      tipo:'rosado', formato:'750 ml', desc:'Fresco y vibrante, frutilla y pomelo rosado. Ideal para aperitivos y mariscos.', tags:['tornaghi','rosado'], img:'vino-tornaghi-rose.jpg' },
   { bodega:'Tornaghi', linea:'1893',            nombre:'Malbec 1893',     varietal:'Malbec',           tipo:'tinto',  formato:'750 ml', desc:'La línea premium de la bodega. Complejidad, estructura y elegancia mendocina en su máxima expresión.', tags:['tornaghi','tinto'], img:'vino-tornaghi-1893.jpg' },
@@ -1966,7 +1962,7 @@ const WINES = [
   { bodega:'Trovero', linea:'Magnum',           nombre:'Tardío',          varietal:'Blanco dulce',     tipo:'blanco', formato:'Magnum 1.5L', desc:'Blanco de cosecha tardía en Magnum. Aromas de durazno en almíbar, acacia y canela.', tags:['trovero','blanco'], img:'vino-trovero-tardio.jpg' },
   { bodega:'Piuke',   linea:'',                nombre:'Bueno de Tintas', varietal:'Blend de tintas',  tipo:'blend',  formato:'750 ml', desc:'Vino de autor con identidad propia. Blend expresivo, bebida fácil y carácter auténtico. Etiqueta con arte mapuche.', tags:['piuke','blend'], img:'vino-piuke-buenodetintas.jpg' },
   { bodega:'Piuke',   linea:'',                nombre:'Chonin Dulce',    varietal:'Blanco dulce',     tipo:'blanco', formato:'750 ml', desc:'Blanco dulce natural artesanal. Tropical, floral y refrescante. Ideal para vinos de entrada accesible.', tags:['piuke','blanco'], img:'vino-piuke-chonindulce.jpg' }
-];            nombre:'Chonin Dulce',    varietal:'Blanco dulce',     tipo:'blanco', formato:'750 ml', desc:'Blanco dulce natural artesanal. Tropical, floral y refrescante. Ideal para vinos de entrada accesible.', tags:['piuke','blanco'], img:'vino-piuke-chonindulce.jpg' 
+];
 
 const BODEGA_META = {
   'Tornaghi':         'Desde 1893 · Mendoza',
@@ -2006,7 +2002,7 @@ function buildVinos(wines) {
       
       // CORRECCIÓN: Apunta directamente a tu carpeta física "bebidas"
       const imgHTML = w.img
-        ? `<img src="/assets/img/bebidas/${w.img}" alt="${w.nombre}" loading="lazy">`
+        ? `<img src="assets/img/vinos/${w.img}" alt="${w.nombre}" loading="lazy">`
         : `<svg class="wine-bottle-ph" width="36" height="100" viewBox="0 0 36 100" fill="none"><rect x="13" y="0" width="10" height="16" rx="3" fill="#B8965A"/><path d="M8 16 Q6 28 6 38 L6 90 Q6 96 12 96 L24 96 Q30 96 30 90 L30 38 Q30 28 28 16Z" fill="#B8965A"/></svg>`;
       
       card.innerHTML = `
@@ -2079,7 +2075,7 @@ function buildBebidas() {
     
     // CORRECCIÓN: Agregada la ruta correcta para la carpeta de bebidas
     const imgHTML = b.img
-      ? `<img src="/assets/img/bebidas/${b.img}" alt="${b.nombre}" loading="lazy">`
+      ? `<img src="assets/img/bebidas/${b.img}" alt="${b.nombre}" loading="lazy">`
       : `<span class="bebida-img-placeholder">🍸</span>`;
       
     card.innerHTML = `
