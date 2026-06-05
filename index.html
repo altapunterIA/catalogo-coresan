@@ -1192,6 +1192,68 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   .quick-top:hover { background: var(--red); transform: translateY(-2px); }
 }
 
+/* ============================================
+   CARRUSEL INFINITO DE MARCAS (logos)
+   ============================================ */
+.logos-section {
+  background: var(--surface-2);
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.logos-label {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gray);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.logos-track-wrap {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.logos-track {
+  display: flex;
+  width: max-content;
+  animation: logoScroll 32s linear infinite;
+}
+.logos-track:hover { animation-play-state: paused; }
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 36px;
+}
+.logo-item img {
+  max-height: 45px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: grayscale(35%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+.logo-item img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 480px) {
+  .logo-item { padding: 0 24px; }
+  .logo-item img { max-height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logos-track { animation: none; }
+  .logos-track-wrap { overflow-x: auto; }
+}
+
 @media (min-width: 1440px) {
   body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1240,6 +1302,31 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       <div class="stat-item"><span class="stat-num">7+</span><span class="stat-label">Categorías</span></div>
       <div class="stat-item"><span class="stat-num">15+</span><span class="stat-label">Marcas</span></div>
       <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Regiones</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CARRUSEL DE MARCAS (logos PNG)
+════════════════════════════════════ -->
+<section class="logos-section">
+  <p class="logos-label">Marcas que representamos</p>
+  <div class="logos-track-wrap">
+    <div class="logos-track">
+      <!-- Set 1 -->
+      <div class="logo-item"><img src="assets/img/marcas/logo-tornaghi.png" alt="Tornaghi"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-smirnoff.png" alt="Smirnoff"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-foncet.png" alt="Cavas de Foncet"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-trovero.png" alt="Trovero"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-piuke.png" alt="Piuke"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-playadito.png" alt="Playadito"></div>
+      <!-- Set 2 (duplicado idéntico para el loop infinito) -->
+      <div class="logo-item"><img src="assets/img/marcas/logo-tornaghi.png" alt="Tornaghi"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-smirnoff.png" alt="Smirnoff"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-foncet.png" alt="Cavas de Foncet"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-trovero.png" alt="Trovero"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-piuke.png" alt="Piuke"></div>
+      <div class="logo-item"><img src="assets/img/marcas/logo-playadito.png" alt="Playadito"></div>
     </div>
   </div>
 </section>
