@@ -1193,7 +1193,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 }
 
 /* ============================================
-   CARRUSEL INFINITO DE MARCAS (logos)
+   CARRUSEL DE MARCAS (logos) — movido por JS
    ============================================ */
 .logos-section {
   background: var(--surface-2);
@@ -1216,76 +1216,34 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 .logos-track {
   display: flex;
   width: max-content;
-  animation: logoScroll 32s linear infinite;
 }
 .logo-item {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 48px;
+  padding: 0 50px;
 }
 .logo-item img {
-  max-height: 150px;
+  max-height: 170px;
   width: auto;
   object-fit: contain;
-  opacity: 0.55;
-  filter: grayscale(35%);
-}
-@keyframes logoScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  opacity: 0.6;
 }
 @media (max-width: 480px) {
-  .logo-item { padding: 0 30px; }
-  .logo-item img { max-height: 250px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logos-track { animation: none; }
-  .logos-track-wrap { overflow-x: auto; }
+  .logo-item { padding: 0 36px; }
+  .logo-item img { max-height: 140px; }
 }
 
 @media (min-width: 1440px) {
   body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
-}
-/* ===== CARRUSEL MARCAS — controlado por JS ===== */
-.logos-section { overflow: hidden !important; }
-.logos-track-wrap {
-  width: 100% !important;
-  overflow: hidden !important;
-  pointer-events: none !important;
-  -webkit-user-select: none !important;
-  user-select: none !important;
-}
-.logos-track {
-  display: flex !important;
-  width: max-content !important;
-  animation: none !important;
-}
-.logo-item {
-  flex-shrink: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 50px !important;
-}
-.logo-item img {
-  max-height: 170px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  opacity: 0.6 !important;
-}
-@media (max-width: 480px) {
-  .logo-item { padding: 0 36px !important; }
-  .logo-item img { max-height: 140px !important; }
 }
 </style>
 </head>
@@ -2401,13 +2359,29 @@ function submitForm() {
   if (!track) return;
   let offset = 0;
   const speed = 0.6; // velocidad: más alto = más rápido
+  let mitad = 0;
+
+  function medir() { mitad = track.scrollWidth / 2; }
+
   function animar() {
-    offset -= speed;
-    const mitad = track.scrollWidth / 2;
-    if (Math.abs(offset) >= mitad) offset = 0;
-    track.style.transform = 'translateX(' + offset + 'px)';
+    if (mitad > 0) {
+      offset -= speed;
+      if (Math.abs(offset) >= mitad) offset += mitad;
+      track.style.transform = 'translateX(' + offset + 'px)';
+    }
     requestAnimationFrame(animar);
   }
+
+  // Medir cuando todo el contenido (imágenes incluidas) terminó de cargar
+  window.addEventListener('load', medir);
+  // Remedir si cambia el tamaño de pantalla (girar el celular, etc.)
+  window.addEventListener('resize', medir);
+  // Medir también cada imagen apenas carga, por si 'load' ya pasó
+  track.querySelectorAll('img').forEach(img => {
+    if (img.complete) medir();
+    else img.addEventListener('load', medir);
+  });
+  medir();
   requestAnimationFrame(animar);
 })();
 </script>
