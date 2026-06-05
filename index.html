@@ -141,160 +141,147 @@ nav {
 .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
 
 /* ============================================
-   HERO — portada logística premium
+   HERO — imagen de portada con overlay
    ============================================ */
 .hero {
   position: relative;
-  min-height: 500px;
+.hero {
+  position: relative;
+  min-height: 460px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   overflow: hidden;
   padding: 0;
-  background: #0F0D0B;
+  background: #161210;
 }
 
 /* Imagen de fondo */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('assets/img/inicio/coresan-inicio-camion.jpg');
+  background-image: url('assets/img/inicio/portada.jpg');
   background-size: cover;
-  background-position: center center;
-  transform: scale(1.06);
-  transition: transform 10s ease;
+  background-position: center 35%;
+  transform: scale(1.05);
+  transition: transform 9s ease;
 }
 .hero:hover .hero-bg { transform: scale(1.0); }
 
-/* Overlay degradado sofisticado: oscuro a la izquierda, transparente a la derecha */
+/* Overlay oscuro degradado profesional */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(105deg, rgba(10,9,8,0.92) 0%, rgba(10,9,8,0.72) 45%, rgba(10,9,8,0.30) 100%),
-    linear-gradient(to top, rgba(10,9,8,0.75) 0%, transparent 40%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.50) 0%,
+    rgba(0,0,0,0.45) 35%,
+    rgba(0,0,0,0.78) 100%
+  );
 }
 
-/* Contenido — glassmorphism premium */
+/* Contenido encima del overlay */
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 24px;
-  max-width: 600px;
+  padding: 56px 24px 40px;
 }
 
-.hero-eyebrow {
+.hero-tag {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  background: rgba(200,40,30,0.92);
+  color: var(--white);
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 18px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 28px;
-  height: 2px;
-  background: var(--yellow);
-  display: inline-block;
-}
-
 .hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 52px;
-  line-height: 0.95;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 0.98;
   color: var(--white);
-  margin-bottom: 18px;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.7);
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6);
 }
-.hero h1 span {
-  color: var(--yellow);
-  display: block;
-  margin-top: 2px;
-}
+.hero h1 span { color: var(--yellow); }
 .hero p {
-  color: rgba(255,255,255,0.85);
-  font-size: 16px;
-  font-weight: 400;
+  color: rgba(255,255,255,0.82);
+  font-size: 15px;
+  font-weight: 300;
   line-height: 1.6;
-  letter-spacing: 0.2px;
-  margin-bottom: 32px;
-  max-width: 440px;
-  text-shadow: 0 1px 14px rgba(0,0,0,0.6);
+  margin-bottom: 30px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+  max-width: 360px;
 }
-.hero-btns { display: flex; flex-direction: column; gap: 12px; }
+.hero-btns { display: flex; flex-direction: column; gap: 11px; }
 .btn-primary {
   background: var(--red);
   color: var(--white);
-  padding: 16px 28px;
+  padding: 15px 24px;
   border-radius: var(--radius-sm);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
   text-decoration: none;
   text-align: center;
   display: flex; align-items: center; justify-content: center; gap: 8px;
   border: none; cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(200,40,30,0.4);
+  box-shadow: 0 6px 20px rgba(200,40,30,0.4);
 }
-.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(200,40,30,0.5); }
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(200,40,30,0.5); }
 .btn-secondary {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   color: var(--white);
-  padding: 15px 28px;
+  padding: 14px 24px;
   border-radius: var(--radius-sm);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
   text-decoration: none;
   text-align: center;
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  border: 1.5px solid rgba(255,255,255,0.35);
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.7); }
+.btn-secondary:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.6); }
 
-/* Barra de stats glassmorphism */
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 36px;
-  background: rgba(255,255,255,0.07);
-  border-radius: var(--radius);
+  gap: 1px;
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.14);
+  margin-top: 32px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 .stat-item {
-  padding: 20px 10px;
+  background: rgba(255,255,255,0.06);
+  padding: 18px 8px;
   text-align: center;
   transition: background 0.3s ease;
-  border-right: 1px solid rgba(255,255,255,0.1);
 }
-.stat-item:last-child { border-right: none; }
-.stat-item:hover { background: rgba(255,255,255,0.06); }
+.stat-item:hover { background: rgba(255,255,255,0.11); }
 .stat-num {
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size: 32px;
+  font-weight: 700; font-size: 30px;
   color: var(--yellow); display: block; line-height: 1;
 }
-.stat-label { font-size: 10px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1.2px; display: block; margin-top: 6px; font-weight: 500; }
-
+.stat-label { font-size: 10px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; display: block; margin-top: 5px; }
+}
 
 /* ============================================
    MARCAS SCROLL
@@ -1102,24 +1089,20 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 
   /* Hero desktop: imagen de ancho completo, altura fija */
   .hero { min-height: 520px; justify-content: flex-end; }
-  .hero { min-height: 560px; }
   .hero-content {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    column-gap: 64px;
-    align-items: center;
-    padding: 0 52px;
-    max-width: 1240px;
-    width: 100%;
-    margin: 0 auto;
+    grid-template-columns: 1fr 360px;
+    column-gap: 60px;
+    align-items: end;
+    padding: 80px 52px 60px;
   }
-  .hero-eyebrow, .hero h1, .hero p, .hero-btns { grid-column: 1; }
-  .hero h1 { font-size: 68px; }
-  .hero p { font-size: 17px; max-width: 500px; }
+  .hero-tag, .hero h1, .hero p, .hero-btns { grid-column: 1; }
+  .hero h1 { font-size: 58px; }
+  .hero p { font-size: 16px; max-width: 520px; margin-bottom: 30px; }
   .hero-btns { flex-direction: row; gap: 14px; }
   .hero-btns a { flex: 0 0 auto; }
-  .hero-stats { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-top: 0; min-width: 280px; }
-  .stat-num { font-size: 34px; }
+  .hero-stats { grid-column: 2; grid-row: 1 / -1; align-self: center; margin-top: 0; min-width: 300px; }
+  .stat-num { font-size: 32px; }
 
   .brands-section { padding: 36px 0; }
   .brands-scroll {
@@ -1192,68 +1175,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   .quick-top:hover { background: var(--red); transform: translateY(-2px); }
 }
 
-/* ============================================
-   CARRUSEL INFINITO DE MARCAS (logos)
-   ============================================ */
-.logos-section {
-  background: var(--surface-2);
-  padding: 36px 0;
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-.logos-label {
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--gray);
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-.logos-track-wrap {
-  width: 100%;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-.logos-track {
-  display: flex;
-  width: max-content;
-  animation: logoScroll 32s linear infinite;
-}
-.logos-track:hover { animation-play-state: paused; }
-.logo-item {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 36px;
-}
-.logo-item img {
-  max-height: 45px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.55;
-  filter: grayscale(35%);
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-.logo-item img:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-@keyframes logoScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (max-width: 480px) {
-  .logo-item { padding: 0 24px; }
-  .logo-item img { max-height: 36px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .logos-track { animation: none; }
-  .logos-track-wrap { overflow-x: auto; }
-}
-
 @media (min-width: 1440px) {
   body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1291,42 +1212,17 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Distribuidora Mayorista · Mendoza</div>
-    <h1>De la fábrica<span>a tu comercio</span></h1>
-    <p>Abastecemos comercios, supermercados, rotiserías y gastronómicos en Mendoza y el Litoral con logística propia. Sin intermediarios.</p>
+    <div class="hero-tag">🚛 Distribuidora Mayorista · Mendoza</div>
+    <h1>De <span>la fábrica</span> a tu comercio. Sin intermediarios.</h1>
+    <p>Abastecemos comercios, supermercados, rotiserías y gastronómicos en Mendoza y el Litoral con logística propia.</p>
     <div class="hero-btns">
-      <a href="#catalogo" class="btn-primary">Ver Catálogo Mayorista</a>
-      <a href="#alta" class="btn-secondary">Darme de alta como cliente</a>
+      <a href="#catalogo" class="btn-primary">📦 Ver Catálogo Mayorista</a>
+      <a href="#alta" class="btn-secondary">🤝 Darme de alta como cliente</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item"><span class="stat-num">7+</span><span class="stat-label">Categorías</span></div>
       <div class="stat-item"><span class="stat-num">15+</span><span class="stat-label">Marcas</span></div>
       <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Regiones</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     CARRUSEL DE MARCAS (logos PNG)
-════════════════════════════════════ -->
-<section class="logos-section">
-  <p class="logos-label">Marcas que representamos</p>
-  <div class="logos-track-wrap">
-    <div class="logos-track">
-      <!-- Set 1 -->
-      <div class="logo-item"><img src="assets/img/marcas/logo-tornaghi.png" alt="Tornaghi"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-smirnoff.png" alt="Smirnoff"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-foncet.png" alt="Cavas de Foncet"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-trovero.png" alt="Trovero"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-piuke.png" alt="Piuke"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-playadito.png" alt="Playadito"></div>
-      <!-- Set 2 (duplicado idéntico para el loop infinito) -->
-      <div class="logo-item"><img src="assets/img/marcas/logo-tornaghi.png" alt="Tornaghi"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-smirnoff.png" alt="Smirnoff"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-foncet.png" alt="Cavas de Foncet"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-trovero.png" alt="Trovero"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-piuke.png" alt="Piuke"></div>
-      <div class="logo-item"><img src="assets/img/marcas/logo-playadito.png" alt="Playadito"></div>
     </div>
   </div>
 </section>
