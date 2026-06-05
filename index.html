@@ -1237,8 +1237,8 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   opacity: 0.6;
 }
 @media (max-width: 480px) {
-  .logo-item { padding: 0 36px; }
-  .logo-item img { max-height: 140px; }
+  .logo-item { padding: 0 26px; }
+  .logo-item img { max-height: 190px; }
 }
 
 @media (min-width: 1440px) {
@@ -2358,7 +2358,7 @@ function submitForm() {
   const track = document.querySelector('.logos-track');
   if (!track) return;
   let offset = 0;
-  const speed = 0.6; // velocidad: más alto = más rápido
+  const speed = 0.4; // velocidad: más alto = más rápido
   let mitad = 0;
 
   function medir() { mitad = track.scrollWidth / 2; }
