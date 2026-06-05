@@ -1268,13 +1268,16 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 .logos-track {
   display: flex !important;
   width: max-content !important;
-  animation: logoScroll 32s linear infinite !important;
+  animation: logoScroll 22s linear infinite !important;
+  will-change: transform !important;
 }
-/* anulamos cualquier pausa vieja al tocar o pasar el mouse */
 .logos-track:hover { animation-play-state: running !important; }
 .logo-item {
   flex-shrink: 0 !important;
-  padding: 0 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 50px !important;
 }
 .logo-item img {
   max-height: 170px !important;
@@ -1283,11 +1286,11 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   opacity: 0.6 !important;
 }
 @keyframes logoScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 @media (max-width: 480px) {
-  .logo-item { padding: 0 30px !important; }
+  .logo-item { padding: 0 36px !important; }
   .logo-item img { max-height: 140px !important; }
 }
 </style>
