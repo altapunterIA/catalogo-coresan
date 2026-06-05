@@ -1256,6 +1256,40 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
 }
+/* ===== CARRUSEL MARCAS — VERSIÓN FINAL (pisa todo lo anterior) ===== */
+.logos-section { overflow: hidden !important; }
+.logos-track-wrap {
+  width: 100% !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+.logos-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: logoScroll 18s linear infinite !important;
+}
+/* anulamos cualquier pausa vieja al tocar o pasar el mouse */
+.logos-track:hover { animation-play-state: running !important; }
+.logo-item {
+  flex-shrink: 0 !important;
+  padding: 0 40px !important;
+}
+.logo-item img {
+  max-height: 70px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  opacity: 0.6 !important;
+}
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 480px) {
+  .logo-item { padding: 0 30px !important; }
+  .logo-item img { max-height: 58px !important; }
+}
 </style>
 </head>
 <body>
