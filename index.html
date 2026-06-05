@@ -1213,51 +1213,40 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 .logos-track-wrap {
   width: 100%;
   overflow: hidden;
-  .logos-track-wrap {
-  width: 100%;
-  overflow: hidden;
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
-}
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 .logos-track {
   display: flex;
   width: max-content;
-  animation: logoScroll 15s linear infinite;
-}
-@media (hover: hover) and (pointer: fine) {
-  .logos-track:hover { animation-play-state: paused; }
+  animation: logoScroll 18s linear infinite;
 }
 .logo-item {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 36px;
+  padding: 0 48px;
 }
 .logo-item img {
-  max-height: 180px;
+  max-height: 150px;
   width: auto;
   object-fit: contain;
   opacity: 0.55;
   filter: grayscale(35%);
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-.logo-item img:hover {
-  opacity: 1;
-  filter: grayscale(0%);
 }
 @keyframes logoScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 @media (max-width: 480px) {
-  .logo-item { padding: 0 24px; }
+  .logo-item { padding: 0 30px; }
   .logo-item img { max-height: 250px; }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .logos-track { animation: none; }
   .logos-track-wrap { overflow-x: auto; }
