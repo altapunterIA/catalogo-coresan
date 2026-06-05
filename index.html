@@ -1256,7 +1256,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
 }
-/* ===== CARRUSEL MARCAS — VERSIÓN FINAL (pisa todo lo anterior) ===== */
+/* ===== CARRUSEL MARCAS — controlado por JS ===== */
 .logos-section { overflow: hidden !important; }
 .logos-track-wrap {
   width: 100% !important;
@@ -1268,10 +1268,8 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 .logos-track {
   display: flex !important;
   width: max-content !important;
-  animation: logoScroll 22s linear infinite !important;
-  will-change: transform !important;
+  animation: none !important;
 }
-.logos-track:hover { animation-play-state: running !important; }
 .logo-item {
   flex-shrink: 0 !important;
   display: flex !important;
@@ -1284,10 +1282,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   width: auto !important;
   object-fit: contain !important;
   opacity: 0.6 !important;
-}
-@keyframes logoScroll {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
 }
 @media (max-width: 480px) {
   .logo-item { padding: 0 36px !important; }
@@ -2398,6 +2392,23 @@ function submitForm() {
     el.classList.add('reveal');
     observer.observe(el);
   });
+})();
+</script>
+<script>
+/* ── CARRUSEL DE MARCAS (aislado, no toca nada más) ── */
+(function () {
+  const track = document.querySelector('.logos-track');
+  if (!track) return;
+  let offset = 0;
+  const speed = 0.6; // velocidad: más alto = más rápido
+  function animar() {
+    offset -= speed;
+    const mitad = track.scrollWidth / 2;
+    if (Math.abs(offset) >= mitad) offset = 0;
+    track.style.transform = 'translateX(' + offset + 'px)';
+    requestAnimationFrame(animar);
+  }
+  requestAnimationFrame(animar);
 })();
 </script>
 </body>
