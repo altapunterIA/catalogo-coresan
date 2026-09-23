@@ -56,8 +56,7 @@ body {
   font-family: 'Barlow', sans-serif;
   background: var(--surface);
   color: var(--dark);
-  max-width: 430px;
-  margin: 0 auto;
+  margin: 0;
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
@@ -1092,13 +1091,8 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 
 
 
-@media (min-width: 1024px) {
-  html { background: var(--surface-2); }
-  body {
-    max-width: 1240px;
-    font-size: 16px;
-    box-shadow: 0 0 80px rgba(0,0,0,0.07);
-  }
+@media (min-width: 900px) {
+  body { font-size: 16px; }
 
   nav { height: 72px; padding: 0 48px; }
   .nav-logo span { font-size: 28px; }
@@ -1246,9 +1240,229 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 }
 
 @media (min-width: 1440px) {
-  body { max-width: 1320px; }
   .cond-grid, .yerbas-grid, .wines-grid { grid-template-columns: repeat(4, 1fr); }
 }
+/* ============================================
+   REDISEÑO — layout fluido + menús limpios
+   (este bloque pisa estilos anteriores)
+   ============================================ */
+:root {
+  --radius: 4px;
+  --radius-sm: 3px;
+  --gutter: max(18px, calc((100% - 1200px) / 2));
+}
+html { background: var(--surface); }
+
+/* Ancho: contenido centrado, fondos a todo lo ancho */
+nav, .catalog-nav, .section, .vinos-inner, .bebidas-section, footer {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ---------- NAVBAR ---------- */
+nav { border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-links { display: none; gap: 28px; }
+.nav-links a {
+  color: rgba(255,255,255,0.68);
+  text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  transition: color .18s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase;
+}
+.nav-cta:hover { transform: none; }
+
+/* ---------- BARRA DE CATEGORÍAS ---------- */
+.catalog-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  gap: 28px;
+  -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+  mask-image: linear-gradient(to right, #000 85%, transparent);
+}
+.cat-tab {
+  padding: 17px 0 15px;
+  margin-bottom: -1px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 15px;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--gray);
+  border-bottom: 2px solid transparent;
+}
+.cat-tab:hover { color: var(--dark); }
+.cat-tab.active { color: var(--dark); border-bottom-color: var(--red); }
+
+/* ---------- ETIQUETAS DE SECCIÓN (sin recuadro) ---------- */
+.section-tag,
+.section-tag.red, .section-tag.green, .section-tag.yerba, .section-tag.almacen, .section-tag.wine {
+  display: flex; align-items: center; gap: 10px;
+  background: none; padding: 0; border-radius: 0;
+  color: var(--red);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 12px; letter-spacing: 2.4px;
+  margin-bottom: 12px;
+}
+.section-tag::before { content: ''; width: 22px; height: 1px; background: currentColor; }
+.almacen-section-title {
+  color: var(--dark);
+  font-size: 13px; letter-spacing: 2px;
+  border-bottom: 1px solid var(--dark);
+}
+
+/* ---------- ÍNDICE DE CATEGORÍAS ---------- */
+.cat-index { border-top: 1px solid var(--dark); margin: 8px 0 56px; }
+.cat-row {
+  width: 100%;
+  display: grid; grid-template-columns: 36px 1fr auto;
+  align-items: center; gap: 14px;
+  padding: 20px 0;
+  background: none; border: 0; border-bottom: 1px solid var(--border);
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+}
+.cat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 14px; letter-spacing: 1px;
+  color: var(--gray);
+}
+.cat-title {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 22px; line-height: 1.1;
+  letter-spacing: .4px; text-transform: uppercase;
+  color: var(--dark);
+  transition: color .2s;
+}
+.cat-desc { display: block; font-size: 13px; color: var(--gray); margin-top: 3px; }
+.cat-arrow { color: var(--gray); display: flex; transition: transform .25s, color .2s; }
+.cat-row:hover .cat-title, .cat-row:focus-visible .cat-title { color: var(--red); }
+.cat-row:hover .cat-arrow { transform: translateX(4px); color: var(--red); }
+
+/* ---------- FILTROS (texto subrayado en vez de píldoras) ---------- */
+.cond-filters, .yerba-filters, .vinos-filters {
+  gap: 24px; padding-bottom: 0;
+  border-bottom: 1px solid var(--border);
+}
+.vinos-filters { border-bottom-color: rgba(184,150,90,0.18); }
+.cond-pill, .yerba-pill, .vinos-pill,
+.cond-pill.active, .yerba-pill.active, .vinos-pill.active,
+.cond-pill:hover:not(.active), .yerba-pill:hover:not(.active), .vinos-pill:hover {
+  background: none;
+  border: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  padding: 10px 0; margin-bottom: -1px;
+  font-size: 13px; font-weight: 500; letter-spacing: .3px;
+}
+.cond-pill, .yerba-pill { color: var(--gray); }
+.cond-pill:hover:not(.active), .yerba-pill:hover:not(.active) { color: var(--dark); }
+.cond-pill.active, .yerba-pill.active { color: var(--dark); border-bottom-color: var(--red); font-weight: 600; }
+.vinos-pill { color: var(--wine-mist); }
+.vinos-pill:hover { color: var(--wine-cream); }
+.vinos-pill.active { color: var(--wine-cream); border-bottom-color: var(--wine-gold); font-weight: 600; }
+
+.cond-search-icon, .vinos-search-icon { display: flex; }
+.cond-search, .vinos-search { border-radius: 2px; }
+
+/* ---------- TARJETAS: más sobrias ---------- */
+.product-card, .cond-card, .yerba-card, .wine-card, .bebida-card, .zona-item, .form-box {
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.product-card:hover, .cond-card:hover, .yerba-card:hover, .zona-item:hover {
+  transform: none; box-shadow: none; border-color: #BDB6AA;
+}
+.wine-card:hover, .bebida-card:hover { transform: none; box-shadow: none; }
+.product-card:hover .product-img-wrap img,
+.cond-card:hover .cond-img-wrap img,
+.yerba-card:hover .yerba-img-wrap img { transform: none; }
+.product-img-wrap { border-radius: 2px; }
+.product-img-placeholder, .cond-img-placeholder, .yerba-img-placeholder, .bebida-img-placeholder {
+  width: 100%; height: 100%; background: var(--surface-2);
+}
+.cond-type-badge, .yerba-variedad-badge, .wine-type-badge, .format-badge, .bebida-type-badge, .tag { border-radius: 2px; }
+
+/* Botones de consulta: contorno en lugar de bloques rojos */
+.cotizar-btn, .cond-btn, .yerba-btn {
+  background: none;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 13px;
+  letter-spacing: 1.2px; text-transform: uppercase;
+}
+.cotizar-btn:hover, .cond-btn:hover, .yerba-btn:hover {
+  background: var(--dark); color: var(--white);
+  transform: none; box-shadow: none;
+}
+.wine-consult, .bebida-consult { border-radius: 2px; letter-spacing: 1.2px; text-transform: uppercase; }
+
+/* CTA cotizador sin ícono */
+.cotizador-cta { border-radius: var(--radius); border-left: 3px solid var(--red); padding: 22px 24px; }
+
+/* Botones hero */
+.btn-primary, .btn-secondary, .form-submit { border-radius: 2px; box-shadow: none; }
+.btn-primary:hover, .form-submit:hover { box-shadow: none; }
+.hero-stats { border-radius: var(--radius); }
+
+/* Beneficios: numeración en lugar de íconos */
+.benefit-dot {
+  width: auto; height: auto; min-width: 30px;
+  background: none; border: 0; box-shadow: none; border-radius: 0;
+  justify-content: flex-start;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 15px; letter-spacing: 1px;
+  color: var(--red); padding-top: 2px;
+}
+
+/* Info box */
+.info-box { border-radius: 2px; }
+
+/* Footer */
+.footer-link { gap: 0; }
+span.footer-link { color: #888; }
+
+/* Flotantes */
+.wa-float { gap: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600; }
+.quick-top { font-size: 0; }
+
+/* ============================================
+   TABLET (600px+)
+   ============================================ */
+@media (min-width: 600px) {
+  .hero h1 { font-size: 58px; }
+  .hero-content { padding: 72px var(--gutter) 56px; max-width: none; }
+  .hero-btns { flex-direction: row; flex-wrap: wrap; }
+  .hero-stats { max-width: 520px; }
+  .product-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cond-grid, .yerbas-grid, .wines-grid, .bebidas-grid { grid-template-columns: repeat(3, 1fr); }
+  .cat-title { font-size: 26px; }
+  .catalog-nav { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ============================================
+   DESKTOP (900px+)
+   ============================================ */
+@media (min-width: 900px) {
+  :root { --gutter: max(48px, calc((100% - 1200px) / 2)); }
+  .nav-links { display: flex; }
+  .catalog-nav { justify-content: flex-start; gap: 40px; }
+  .cat-tab { padding: 22px 0 20px; font-size: 15px; }
+  .hero-content { padding: 0 var(--gutter); max-width: none; }
+  .section { padding-top: 64px; padding-bottom: 64px; }
+  .cat-row { grid-template-columns: 56px 1fr auto; padding: 24px 0; gap: 20px; }
+  .cat-main { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+  .cat-title { font-size: 30px; }
+  .cat-desc { margin-top: 0; font-size: 14px; }
+  .product-list { grid-template-columns: repeat(3, 1fr); }
+  .cond-filters, .yerba-filters { flex-wrap: wrap; }
+}
+
 </style>
 </head>
 <body>
@@ -1272,7 +1486,14 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
     </svg>
     <span>CORE<em>SAN</em></span>
   </div>
-  <a href="#alta" class="nav-cta">📋 Darme de alta</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#alta">Contacto</a>
+    </div>
+    <a href="#alta" class="nav-cta">Darme de alta</a>
+  </div>
 </nav>
 
 <!-- ════════════════════════════════════
@@ -1328,63 +1549,58 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 
   <!-- TAB BAR — siempre dark, acento amarillo unificado -->
   <div class="catalog-nav" role="tablist">
-<button class="cat-tab active" data-tab="inicio"      role="tab">🏠 Inicio</button>
-<button class="cat-tab"        data-tab="almacen"     role="tab">🏪 Almacén</button>
-<button class="cat-tab"        data-tab="vinos"       role="tab">🍷 Vinos</button>
-<button class="cat-tab"        data-tab="yerbas"      role="tab">🌿 Yerbas</button>
-<button class="cat-tab"        data-tab="condimentos" role="tab">🌶️ Condimentos</button>
-<button class="cat-tab"        data-tab="snacks"      role="tab">🌽 Snacks</button>
+<button class="cat-tab active" data-tab="inicio"      role="tab">Inicio</button>
+<button class="cat-tab"        data-tab="almacen"     role="tab">Almacén</button>
+<button class="cat-tab"        data-tab="vinos"       role="tab">Vinos</button>
+<button class="cat-tab"        data-tab="yerbas"      role="tab">Yerbas</button>
+<button class="cat-tab"        data-tab="condimentos" role="tab">Condimentos</button>
+<button class="cat-tab"        data-tab="snacks"      role="tab">Snacks</button>
   </div>
 
   <!-- ─── PANEL: INICIO ─── -->
   <div class="cat-panel active" id="panel-inicio">
     <div class="section">
-      <div class="section-tag">📦 Catálogo</div>
+      <div class="section-tag">Catálogo</div>
       <h2>Nuestras Categorías</h2>
       <p class="intro">Seleccioná una categoría para explorar el catálogo completo.</p>
-      <div class="featured-grid">
-        <div class="featured-card" onclick="switchTab('almacen')">
-          <span class="fc-icon">🏪</span>
-          <span class="fc-name">Almacén y Cocina</span>
-          <span class="fc-sub">Aceite · Sal · Azúcar · Fideos · Grasas</span>
-          <span class="fc-badge">Ver catálogo</span>
-        </div>
-        <div class="featured-card" onclick="switchTab('yerbas')">
-          <span class="fc-icon">🧉</span>
-          <span class="fc-name">Yerbas Mate</span>
-          <span class="fc-sub">Playadito · Taragüi · Piporé</span>
-          <span class="fc-badge">Ver catálogo</span>
-        </div>
-        <div class="featured-card" onclick="switchTab('condimentos')">
-          <span class="fc-icon">🌶️</span>
-          <span class="fc-name">Condimentos</span>
-          <span class="fc-sub">Reina Mora · 7 productos</span>
-          <span class="fc-badge">Ver catálogo</span>
-        </div>
-        <div class="featured-card" onclick="switchTab('snacks')">
-          <span class="fc-icon">🌽</span>
-          <span class="fc-name">Snacks</span>
-          <span class="fc-sub">Maíz · Arroz · Trigo</span>
-          <span class="fc-badge">Ver catálogo</span>
-        </div>
-        <div class="featured-card dark" onclick="switchTab('vinos')" style="grid-column: span 2;">
-          <span class="fc-icon">🍷</span>
-          <span class="fc-name">Vinos, Bodega &amp; Bebidas</span>
-          <span class="fc-sub">18 vinos · 4 bodegas · Smirnoff</span>
-          <span class="fc-badge">Ver catálogo</span>
-        </div>
+      <div class="cat-index">
+        <button class="cat-row" type="button" onclick="switchTab('almacen')">
+          <span class="cat-num">01</span>
+          <span class="cat-main"><span class="cat-title">Almacén y Cocina</span><span class="cat-desc">Aceite · Sal · Azúcar · Fideos · Grasas</span></span>
+          <span class="cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="cat-row" type="button" onclick="switchTab('yerbas')">
+          <span class="cat-num">02</span>
+          <span class="cat-main"><span class="cat-title">Yerbas Mate</span><span class="cat-desc">Playadito · Taragüi · Piporé</span></span>
+          <span class="cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="cat-row" type="button" onclick="switchTab('condimentos')">
+          <span class="cat-num">03</span>
+          <span class="cat-main"><span class="cat-title">Condimentos y Especias</span><span class="cat-desc">Reina Mora · 7 productos</span></span>
+          <span class="cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="cat-row" type="button" onclick="switchTab('snacks')">
+          <span class="cat-num">04</span>
+          <span class="cat-main"><span class="cat-title">Snacks</span><span class="cat-desc">Maíz · Arroz · Trigo inflado</span></span>
+          <span class="cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="cat-row" type="button" onclick="switchTab('vinos')">
+          <span class="cat-num">05</span>
+          <span class="cat-main"><span class="cat-title">Vinos y Bebidas</span><span class="cat-desc">18 vinos · 4 bodegas · Smirnoff</span></span>
+          <span class="cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
       </div>
 
-      <div class="section-tag red" style="margin-top:8px">🛒 Más consultados</div>
+      <div class="section-tag red" style="margin-top:8px">Más consultados</div>
       <h2>Productos Destacados</h2>
       <p class="intro" style="margin-bottom:16px">Consultá disponibilidad y precios por volumen.</p>
       <div class="product-list">
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/grasas/grasa-vildoza.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/grasas/grasa-vildoza.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/grasas/grasa-vildoza.jpg" alt="Grasa Vacuna Vildoza" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🥩</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Grasa Vacuna Comestible</div>
@@ -1395,10 +1611,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
         </div>
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/yerbas/yerba-taragui.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/yerbas/yerba-taragui.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/yerbas/yerba-taragui.jpg" alt="Yerba Taragüi 500g" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🧉</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Yerba Mate</div>
@@ -1409,10 +1625,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
         </div>
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cond/cond-oregano.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/cond/cond-oregano.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/cond/cond-oregano.jpg" alt="Orégano Reina Mora" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🌿</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Orégano</div>
@@ -1423,10 +1639,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
         </div>
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/snacks/snack-maiz.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/snacks/snack-maiz.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/snacks/snack-maiz.jpg" alt="Maíz Inflado Azucarado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🌽</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Maíz Inflado Azucarado</div>
@@ -1438,7 +1654,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
 
       </div>
       <div class="cotizador-cta">
-        <div class="cotizador-icon">📋</div>
         <div class="cotizador-text">
           <h3>¿Necesitás armar un pedido?</h3>
           <p>Mandanos la lista por WhatsApp y te cotizamos al instante.</p>
@@ -1450,18 +1665,18 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <!-- ─── PANEL: ALMACÉN Y COCINA ─── -->
   <div class="cat-panel almacen-panel" id="panel-almacen">
     <div class="section">
-      <div class="section-tag almacen">🏪 Almacén</div>
+      <div class="section-tag almacen">Almacén</div>
       <h2>Almacén y Cocina</h2>
       <p class="intro">Productos esenciales de almacén para distribución mayorista: aceites, grasas, sal, azúcar, fideos y más.</p>
 
       <!-- SUBSECCIÓN: Aceites -->
-      <div class="almacen-section-title">🌻 Aceites</div>
+      <div class="almacen-section-title">Aceites</div>
       <div class="product-list">
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/aceite-canuelas.jpg -->
+          <!-- FOTO: assets/img/cocina/aceite-canuelas.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/aceite-canuelas.jpg" alt="Aceite Cañuelas Girasol" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🌻</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Aceite de Girasol</div>
@@ -1473,13 +1688,13 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <!-- SUBSECCIÓN: Sal -->
-      <div class="almacen-section-title">🧂 Sal</div>
+      <div class="almacen-section-title">Sal</div>
       <div class="product-list">
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/sal-celusal.jpg -->
+          <!-- FOTO: assets/img/cocina/sal-celusal.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/sal-celusal.jpg" alt="Sal Celusal Fina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🧂</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Sal Fina Corrediza</div>
@@ -1491,13 +1706,13 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <!-- SUBSECCIÓN: Azúcar -->
-      <div class="almacen-section-title">🍬 Azúcar</div>
+      <div class="almacen-section-title">Azúcar</div>
       <div class="product-list">
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/azucar-ledesma.jpg -->
+          <!-- FOTO: assets/img/cocina/azucar-ledesma.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/azucar-ledesma.jpg" alt="Azúcar Ledesma Clásica" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍬</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Azúcar Clásica Tipo A</div>
@@ -1509,13 +1724,13 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <!-- SUBSECCIÓN: Fideos -->
-      <div class="almacen-section-title">🍝 Fideos y Pastas</div>
+      <div class="almacen-section-title">Fideos y Pastas</div>
       <div class="product-list">
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-spaghetti.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-spaghetti.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-spaghetti.jpg" alt="Verizzia Spaghetti" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Spaghetti</div>
@@ -1525,10 +1740,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Spaghetti', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-tallarines.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-tallarines.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-tallarines.jpg" alt="Verizzia Tallarines" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Tallarines</div>
@@ -1538,10 +1753,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Tallarines', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-mostachol.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-mostachol.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-mostachol.jpg" alt="Verizzia Mostachol" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Mostachol</div>
@@ -1551,10 +1766,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Mostachol', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-rigatoni.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-rigatoni.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-rigatoni.jpg" alt="Verizzia Rigatoni" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Rigatoni</div>
@@ -1564,10 +1779,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Rigatoni', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-codo.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-codo.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-codo.jpg" alt="Verizzia Codo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Codo</div>
@@ -1577,10 +1792,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Codo', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-dedalito.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-dedalito.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-dedalito.jpg" alt="Verizzia Dedalito" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Dedalito</div>
@@ -1590,10 +1805,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Dedalito', 'Verizzia', '500g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/cocina/fideo-tirabuzon.jpg -->
+          <!-- FOTO: assets/img/cocina/fideo-tirabuzon.jpg -->
           <div class="product-img-wrap">
             <img src="assets/img/cocina/fideo-tirabuzon.jpg" alt="Verizzia Tirabuzón" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍝</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Tirabuzón</div>
@@ -1605,13 +1820,13 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <!-- SUBSECCIÓN: Grasas -->
-      <div class="almacen-section-title">🥩 Grasas Comestibles</div>
+      <div class="almacen-section-title">Grasas Comestibles</div>
       <div class="product-list">
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/grasas/grasa-vildoza.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/grasas/grasa-vildoza.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/grasas/grasa-vildoza.jpg" alt="Grasa Vacuna Vildoza" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🥩</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Grasa Vacuna Comestible</div>
@@ -1621,10 +1836,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Grasa Vacuna Comestible', 'Vildoza', 'Sachet 1 kg')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/grasas/grasa-jocoli800g.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/grasas/grasa-jocoli800g.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/grasas/grasa-jocoli800g.jpg" alt="Grasa Vacuna Jocolí 800g" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🥩</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Grasa Vacuna Comestible</div>
@@ -1634,10 +1849,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
           <button class="cotizar-btn" onclick="cotizar('Grasa Vacuna Comestible', 'Jocolí', 'Sachet 800g')">Cotizar</button>
         </div>
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/grasas/grasa-jocoli1kg.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/grasas/grasa-jocoli1kg.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/grasas/grasa-jocoli1kg.jpg" alt="Grasa Vacuna Jocolí 1kg" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🥩</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Grasa Vacuna Comestible</div>
@@ -1649,7 +1864,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <div class="cotizador-cta" style="margin-top:20px">
-        <div class="cotizador-icon">🏪</div>
         <div class="cotizador-text">
           <h3>Pedidos por caja</h3>
           <p>Consultá cantidades mínimas y disponibilidad por WhatsApp.</p>
@@ -1661,7 +1875,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <!-- ─── PANEL: YERBAS ─── -->
   <div class="cat-panel yerbas-panel" id="panel-yerbas">
     <div class="section">
-      <div class="section-tag yerba">🧉 Yerba Mate</div>
+      <div class="section-tag yerba">Yerba Mate</div>
       <h2>Yerbas Mate</h2>
       <p class="intro">Selección de marcas para distribución mayorista, separadas por marca y variedad.</p>
 
@@ -1679,7 +1893,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       <div class="yerbas-empty" id="yerbaEmpty">Sin resultados para ese filtro.</div>
 
       <div class="cotizador-cta" style="margin-top:20px">
-        <div class="cotizador-icon">🧉</div>
         <div class="cotizador-text">
           <h3>Pedidos mayoristas de yerba</h3>
           <p>Consultá precio por caja y disponibilidad por WhatsApp.</p>
@@ -1691,12 +1904,12 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <!-- ─── PANEL: CONDIMENTOS ─── -->
   <div class="cat-panel" id="panel-condimentos">
     <div class="section">
-      <div class="section-tag green">🌶️ Especias</div>
+      <div class="section-tag green">Especias</div>
       <h2>Condimentos y Especias</h2>
       <p class="intro">Línea Reina Mora — sachets 25g para distribución mayorista.</p>
 
       <div class="cond-search-wrap">
-        <span class="cond-search-icon">🔍</span>
+        <span class="cond-search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
         <input type="text" class="cond-search" id="condSearch" placeholder="Buscar condimento…" autocomplete="off">
       </div>
       <div class="cond-filters" id="condFilters">
@@ -1711,7 +1924,6 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       <div class="cond-empty" id="condEmpty">Sin resultados para esa búsqueda.</div>
 
       <div class="cotizador-cta" style="margin-top:20px">
-        <div class="cotizador-icon">🌶️</div>
         <div class="cotizador-text">
           <h3>Pedidos por caja</h3>
           <p>Consultá cantidad mínima y disponibilidad por WhatsApp.</p>
@@ -1723,16 +1935,16 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <!-- ─── PANEL: SNACKS ─── -->
   <div class="cat-panel" id="panel-snacks">
     <div class="section">
-      <div class="section-tag">🌽 Snacks</div>
+      <div class="section-tag">Snacks</div>
       <h2>Snacks y Cereales Inflados</h2>
       <p class="intro">Cereales azucarados en múltiples presentaciones mayoristas.</p>
       <div class="product-list">
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/snacks/snack-maiz.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/snacks/snack-maiz.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/snacks/snack-maiz.jpg" alt="Maíz Inflado Azucarado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🌽</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Maíz Inflado Azucarado</div>
@@ -1743,10 +1955,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
         </div>
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/snacks/snack-arroz.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/snacks/snack-arroz.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/snacks/snack-arroz.jpg" alt="Arroz Inflado Azucarado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🍚</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Arroz Inflado Azucarado</div>
@@ -1757,10 +1969,10 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
         </div>
 
         <div class="product-card">
-          <!-- 📷 FOTO: assets/img/snacks/snack-trigo.jpg  (guardá tu imagen con este nombre exacto) -->
+          <!-- FOTO: assets/img/snacks/snack-trigo.jpg  (guardá tu imagen con este nombre exacto) -->
           <div class="product-img-wrap">
             <img src="assets/img/snacks/snack-trigo.jpg" alt="Trigo Inflado Azucarado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="product-img-placeholder" style="display:none">🌾</span>
+            <span class="product-img-placeholder" style="display:none"></span>
           </div>
           <div class="product-info">
             <div class="product-name">Trigo Inflado Azucarado</div>
@@ -1785,7 +1997,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </div>
 
       <div class="vinos-search-wrap">
-        <span class="vinos-search-icon">🔍</span>
+        <span class="vinos-search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
         <input type="text" class="vinos-search" id="vinosSearch" placeholder="Buscar vino o bodega…" autocomplete="off">
       </div>
       <div class="vinos-filters" id="vinosFilters">
@@ -1818,22 +2030,22 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
      BENEFICIOS
 ════════════════════════════════════ -->
 <section class="section benefits-section">
-  <div class="section-tag">✅ Por qué elegirnos</div>
+  <div class="section-tag">Por qué elegirnos</div>
   <h2>La diferencia CORESAN</h2>
   <div class="benefit-item">
-    <div class="benefit-dot">🚛</div>
+    <div class="benefit-dot">01</div>
     <div><div class="benefit-title">Logística propia</div><div class="benefit-desc">Sin intermediarios. Controlamos la cadena de frío y los tiempos de entrega.</div></div>
   </div>
   <div class="benefit-item">
-    <div class="benefit-dot">🏭</div>
+    <div class="benefit-dot">02</div>
     <div><div class="benefit-title">Directo de fábrica</div><div class="benefit-desc">Precios competitivos que maximizan tu margen de ganancia en cada pedido.</div></div>
   </div>
   <div class="benefit-item">
-    <div class="benefit-dot">🤝</div>
+    <div class="benefit-dot">03</div>
     <div><div class="benefit-title">Atención personalizada</div><div class="benefit-desc">Soporte continuo vía WhatsApp. Un asesor te acompaña en cada pedido.</div></div>
   </div>
   <div class="benefit-item">
-    <div class="benefit-dot">📦</div>
+    <div class="benefit-dot">04</div>
     <div><div class="benefit-title">Variedad de categorías</div><div class="benefit-desc">Almacén, yerbas, especias, snacks y vinos en formatos mayoristas para cada negocio.</div></div>
   </div>
 </section>
@@ -1842,7 +2054,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
      COBERTURA
 ════════════════════════════════════ -->
 <section class="section" id="cobertura" style="background:var(--white)">
-  <div class="section-tag">📍 Zona de entrega</div>
+  <div class="section-tag">Zona de entrega</div>
   <h2>Cobertura Geográfica</h2>
   <p class="intro">Operamos en dos zonas con frecuencias de entrega coordinadas.</p>
   <div class="zona-list">
@@ -1872,7 +2084,7 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
      FORMULARIO ALTA
 ════════════════════════════════════ -->
 <section class="section form-section" id="alta">
-  <div class="section-tag">📋 Registro</div>
+  <div class="section-tag">Registro</div>
   <h2>Darme de Alta como Cliente</h2>
   <p class="intro">Dejanos tus datos y un asesor se contacta en menos de 24hs.</p>
   <div class="form-box">
@@ -1903,8 +2115,8 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
       </select>
     </div>
     <div class="form-row"><label>¿Qué productos te interesan?</label><textarea placeholder="Ej: grasas comestibles, yerbas, especias, vinos..."></textarea></div>
-    <button class="form-submit" onclick="submitForm()">Enviar solicitud de alta →</button>
-    <p class="form-note">📲 También podés escribirnos directamente por WhatsApp.</p>
+    <button class="form-submit" onclick="submitForm()">Enviar solicitud de alta</button>
+    <p class="form-note">También podés escribirnos directamente por WhatsApp.</p>
   </div>
 </section>
 
@@ -1913,16 +2125,16 @@ footer { background: var(--dark); padding: 32px 22px 22px; color: #888; border-t
   <div class="footer-logo">CORE<em>SAN</em></div>
   <p class="footer-desc">Distribuidora directa de comestibles. Mendoza y el Litoral con logística propia.</p>
   <div class="footer-links">
-    <a href="#" class="footer-link">📱 Instagram: @coresan.sr</a>
-    <a href="#" class="footer-link">💬 WhatsApp: wa.link/gic6dn</a>
-    <a href="#" class="footer-link">📍 Mendoza, Argentina</a>
+    <a href="https://instagram.com/coresan.sr" class="footer-link" target="_blank" rel="noopener">Instagram · @coresan.sr</a>
+    <a href="https://wa.link/gic6dn" class="footer-link" target="_blank" rel="noopener">WhatsApp · Consultas y pedidos</a>
+    <span class="footer-link">Mendoza, Argentina</span>
   </div>
   <div class="footer-bottom">© 2025 CORESAN Distribuidora Directa</div>
 </footer>
 
 <!-- Acceso rapido: volver arriba (solo se ve en PC) -->
-<a href="#" class="quick-top" title="Volver arriba" aria-label="Volver arriba">↑</a>
-<a href="https://wa.link/gic6dn" class="wa-float" target="_blank">💬 WhatsApp</a>
+<a href="#" class="quick-top" title="Volver arriba" aria-label="Volver arriba"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+<a href="https://wa.link/gic6dn" class="wa-float" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.7-5.1A8.5 8.5 0 1 1 21 12z"/></svg><span>WhatsApp</span></a>
 
 <!-- ════════════════════════════════════
      JAVASCRIPT
@@ -1994,7 +2206,7 @@ const CONDIMENTOS = [
 
 const TIPO_BADGE = { especia:'badge-especia', condimento:'badge-condimento', mezcla:'badge-mezcla' };
 const TIPO_LABEL = { especia:'Especia', condimento:'Condimento', mezcla:'Mezcla' };
-const TIPO_EMOJI = { especia:'🌶️', condimento:'🧄', mezcla:'🌿' };
+
 
 function buildCondimentos(items) {
   const grid  = document.getElementById('condGrid');
@@ -2009,7 +2221,7 @@ function buildCondimentos(items) {
     card.className = 'cond-card';
     const imgHTML = p.img
       ? `<img src="${p.img}" alt="${p.nombre}" loading="lazy">`
-      : `<span class="cond-img-placeholder">${TIPO_EMOJI[p.tipo]}</span>`;
+      : `<span class="cond-img-placeholder"></span>`;
     card.innerHTML = `
       <div class="cond-img-wrap">
         <span class="cond-type-badge ${TIPO_BADGE[p.tipo]}">${TIPO_LABEL[p.tipo]}</span>
@@ -2020,7 +2232,7 @@ function buildCondimentos(items) {
         <div class="cond-name">${p.nombre}</div>
         <div class="cond-formato">${p.formato}</div>
         <div class="cond-desc">${p.desc}</div>
-        <button class="cond-btn" onclick="cotizar('${p.nombre}', '${p.marca}', '${p.formato}')">Consultar precio →</button>
+        <button class="cond-btn" onclick="cotizar('${p.nombre}', '${p.marca}', '${p.formato}')">Consultar precio</button>
       </div>`;
     grid.appendChild(card);
   });
@@ -2124,7 +2336,7 @@ function buildYerbas(yerbas) {
       card.className = 'yerba-card';
       const imgHTML = y.img
         ? `<img src="${y.img}" alt="${y.nombre}" loading="lazy">`
-        : `<span class="yerba-img-placeholder">🧉</span>`;
+        : `<span class="yerba-img-placeholder"></span>`;
       card.innerHTML = `
         <div class="yerba-img-wrap">
           <span class="yerba-variedad-badge ${VARIEDAD_BADGE[y.variedad]}">${VARIEDAD_LABEL[y.variedad]}</span>
@@ -2135,7 +2347,7 @@ function buildYerbas(yerbas) {
           <div class="yerba-name">${y.nombre}</div>
           <div class="yerba-formato">${y.formato}</div>
           <div class="yerba-desc">${y.desc}</div>
-          <button class="yerba-btn" onclick="cotizar('Yerba ${y.nombre}', '${y.marca}', '${y.formato}')">Consultar precio →</button>
+          <button class="yerba-btn" onclick="cotizar('Yerba ${y.nombre}', '${y.marca}', '${y.formato}')">Consultar precio</button>
         </div>`;
       grid.appendChild(card);
     });
@@ -2226,7 +2438,7 @@ function buildVinos(wines) {
           <div class="wine-name">${w.nombre}</div>
           <div class="wine-varietal">${w.varietal}</div>
           <div class="wine-desc">${w.desc}</div>
-          <button class="wine-consult" onclick="cotizar('${w.nombre} (${w.varietal})', '${w.bodega}', '${w.formato}')">Consultar →</button>
+          <button class="wine-consult" onclick="cotizar('${w.nombre} (${w.varietal})', '${w.bodega}', '${w.formato}')">Consultar</button>
         </div>`;
       grid.appendChild(card);
     });
@@ -2285,7 +2497,7 @@ function buildBebidas() {
     // CORRECCIÓN: Agregada la ruta correcta para la carpeta de bebidas
     const imgHTML = b.img
       ? `<img src="assets/img/bebidas/${b.img}" alt="${b.nombre}" loading="lazy">`
-      : `<span class="bebida-img-placeholder">🍸</span>`;
+      : `<span class="bebida-img-placeholder"></span>`;
       
     card.innerHTML = `
       <div class="bebida-img-wrap">
@@ -2296,7 +2508,7 @@ function buildBebidas() {
         <div class="bebida-marca">${b.marca}</div>
         <div class="bebida-name">${b.nombre}</div>
         <div class="bebida-varietal">${b.varietal}</div>
-        <button class="bebida-consult" onclick="cotizar('${b.nombre}', '${b.marca}', '${b.varietal}')">Consultar →</button>
+        <button class="bebida-consult" onclick="cotizar('${b.nombre}', '${b.marca}', '${b.varietal}')">Consultar</button>
       </div>`;
     grid.appendChild(card);
   });
@@ -2324,9 +2536,9 @@ const CORESAN_WPP = '5492604531359';
   Es retrocompatible: si solo se pasa el nombre, funciona igual que antes.
 */
 function cotizar(producto, marca, formato) {
-  let cuerpo = `Hola CORESAN 👋 Quería consultar por el siguiente producto del catálogo:\n\n📦 *${producto}*`;
-  if (marca)   cuerpo += `\n🏷️ Marca: ${marca}`;
-  if (formato) cuerpo += `\n📐 Formato: ${formato}`;
+  let cuerpo = `Hola CORESAN, quería consultar por el siguiente producto del catálogo:\n\n*${producto}*`;
+  if (marca)   cuerpo += `\nMarca: ${marca}`;
+  if (formato) cuerpo += `\nFormato: ${formato}`;
   cuerpo += `\n\n¿Me pasan precio mayorista y disponibilidad? Gracias.`;
   const msg = encodeURIComponent(cuerpo);
   window.open(`https://wa.me/${CORESAN_WPP}?text=${msg}`, '_blank');
