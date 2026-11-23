@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flyers Stock · Coresan</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/logo/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:#C8281E; --maroon:#5C1418; --maroon-2:#4A0F13; --yellow:#F0B429; --gold:#F2B526;
+  --cream:#F5F0E8; --dark:#1A1A1A; --surface:#F5F4F1; --border:#E0DDD6; --gray:#6B6B6B;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Barlow',sans-serif; background:var(--surface); color:var(--dark); }
+
+/* ── Página ── */
+.top {
+  position:sticky; top:0; z-index:10; background:rgba(26,26,26,.97);
+  border-bottom:2px solid var(--red); color:#fff;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:0 16px; height:58px;
+}
+.top a { color:#fff; text-decoration:none; font-family:'Barlow Condensed'; font-weight:800; font-size:22px; }
+.top a span { color:var(--red); }
+.top small { font-size:12px; opacity:.7; }
+.intro { max-width:1200px; margin:0 auto; padding:28px 16px 8px; }
+.intro h1 { font-family:'Barlow Condensed'; font-weight:800; font-size:44px; line-height:1; letter-spacing:.5px; }
+.intro h1 span { color:var(--red); }
+.intro p { color:var(--gray); margin-top:8px; max-width:640px; }
+.pills { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 6px; }
+.pill {
+  border:1px solid var(--border); background:#fff; color:var(--dark); border-radius:999px;
+  padding:7px 14px; font:600 13px 'Barlow'; cursor:pointer;
+}
+.pill.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+.count { font-size:13px; color:var(--gray); margin-top:4px; }
+
+.grid {
+  max-width:1200px; margin:0 auto; padding:16px 16px 60px;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px;
+}
+.cell { cursor:pointer; }
+.thumb {
+  position:relative; width:100%; aspect-ratio:1080/1920; overflow:hidden;
+  border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.10); background:#ddd;
+  transition:transform .18s, box-shadow .18s;
+}
+.cell:hover .thumb { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,.16); }
+.thumb .flyer { position:absolute; top:0; left:0; transform-origin:0 0; }
+.cell figcaption { font-size:13px; margin-top:8px; display:flex; justify-content:space-between; gap:8px; }
+.cell figcaption b { font-weight:600; }
+.cell figcaption span { color:var(--gray); }
+
+/* Lightbox */
+.lb { position:fixed; inset:0; background:rgba(10,9,8,.92); z-index:50; display:none;
+      align-items:center; justify-content:center; flex-direction:column; gap:14px; padding:16px; }
+.lb.open { display:flex; }
+.lb img { max-height:calc(100vh - 110px); max-width:100%; border-radius:10px; }
+.lb .bar { display:flex; gap:10px; }
+.lb button, .lb a {
+  background:var(--red); color:#fff; border:0; border-radius:8px; padding:10px 16px;
+  font:600 14px 'Barlow'; text-decoration:none; cursor:pointer;
+}
+.lb .ghost { background:rgba(255,255,255,.12); }
+
+/* ── FLYER 1080 x 1920 ── */
+.flyer {
+  width:1080px; height:1920px; display:flex; flex-direction:column; overflow:hidden;
+  background:var(--maroon); font-family:'Barlow Condensed',sans-serif;
+}
+.fl-top { height:330px; background:var(--yellow); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.fl-brand { font-weight:800; font-size:236px; line-height:.86; color:var(--maroon); letter-spacing:6px; }
+.fl-brand span { color:var(--red); }
+.fl-tag { font-weight:700; font-size:40px; letter-spacing:3px; color:var(--maroon); margin-top:22px; }
+
+.fl-stage {
+  position:relative; height:880px; overflow:hidden;
+  background:radial-gradient(ellipse at 50% 42%, var(--bg1) 0%, var(--bg2) 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.fl-watermark {
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-8deg);
+  font-weight:800; font-size:230px; color:var(--ink); opacity:.08; white-space:nowrap; letter-spacing:4px;
+}
+.fl-chip {
+  position:absolute; top:44px; left:48px; background:var(--maroon); color:var(--gold);
+  font-weight:700; font-size:36px; letter-spacing:2px; text-transform:uppercase;
+  padding:10px 26px; border-radius:6px;
+}
+.fl-code {
+  position:absolute; top:52px; right:52px; color:var(--ink); opacity:.7;
+  font-weight:700; font-size:32px; letter-spacing:3px;
+}
+.fl-visual { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; height:760px; margin-top:40px; filter:drop-shadow(0 26px 30px rgba(0,0,0,.28)); }
+.fl-visual svg { display:block; transform:scale(1.22); transform-origin:50% 100%; }
+.fl-visual svg[viewBox="0 0 300 700"] { transform:scale(1.04); }
+.fl-foto { max-height:700px; max-width:900px; object-fit:contain; }
+.fl-floor { position:absolute; bottom:50px; left:50%; width:680px; height:60px; transform:translateX(-50%);
+            background:radial-gradient(ellipse, rgba(0,0,0,.28), transparent 70%); z-index:1; }
+
+.fl-info {
+  flex:1; padding:56px 76px 44px; color:var(--cream); display:flex; flex-direction:column;
+  background:linear-gradient(180deg, var(--maroon) 0%, var(--maroon-2) 100%);
+}
+.fl-marca { font-weight:700; font-size:38px; letter-spacing:4px; color:var(--cream); opacity:.8; text-transform:uppercase; }
+.fl-name { font-weight:800; font-size:118px; line-height:.95; color:var(--gold); text-transform:uppercase; letter-spacing:1px; }
+.fl-name.long { font-size:96px; }
+.fl-name.xlong { font-size:82px; }
+.fl-sub { font-family:'Barlow',sans-serif; font-weight:500; font-size:38px; text-transform:uppercase; letter-spacing:1px; margin-top:14px; opacity:.92; }
+.fl-table { border:3px solid var(--gold); margin-top:36px; }
+.fl-row { display:flex; justify-content:space-between; align-items:center; padding:20px 36px; font-size:42px; }
+.fl-row + .fl-row { border-top:3px solid var(--gold); }
+.fl-row span { font-weight:600; text-transform:uppercase; letter-spacing:1px; opacity:.85; }
+.fl-row b { font-weight:800; color:var(--gold); text-transform:uppercase; }
+.fl-foot { margin-top:auto; display:flex; align-items:center; gap:14px; font-weight:700; font-size:34px; letter-spacing:2px; }
+.fl-foot em { margin-left:auto; font-style:normal; opacity:.75; }
+.fl-dot { width:20px; height:20px; border-radius:50%; background:#4CC86A; box-shadow:0 0 0 6px rgba(76,200,106,.25); }
+
+/* Modo exportación: flyers a tamaño real, uno debajo del otro */
+body.export { background:#000; }
+body.export .top, body.export .intro, body.export .lb { display:none; }
+body.export .grid { display:block; padding:0; max-width:none; }
+body.export .thumb, body.export .cell:hover .thumb { transform:none; width:1080px; height:1920px; aspect-ratio:auto; border-radius:0; box-shadow:none; }
+body.export .thumb .flyer { transform:none !important; position:static; }
+body.export figcaption { display:none; }
+
+@media (max-width:520px) {
+  .grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+  .intro h1 { font-size:34px; }
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="../">CORE<span>SAN</span></a>
+  <small>Flyers stock · uso interno</small>
+</div>
+
+<section class="intro">
+  <h1>FLYERS <span>STOCK</span></h1>
+  <p>40 productos nuevos listos para cuando salgan a producción. Sin etiquetas de oferta ni de fiestas. Tocá un flyer para verlo en grande y descargarlo.</p>
+  <div class="pills" id="pills"></div>
+  <div class="count" id="count"></div>
+</section>
+
+<main class="grid" id="grid"></main>
+
+<div class="lb" id="lb">
+  <img id="lbImg" alt="">
+  <div class="bar">
+    <a id="lbDl" download>Descargar PNG</a>
+    <button class="ghost" id="lbClose">Cerrar</button>
+  </div>
+</div>
+
+<script src="flyers.js"></script>
+<script src="render.js"></script>
+<script>
+const EXPORT = new URLSearchParams(location.search).has('export');
+if (EXPORT) document.body.classList.add('export');
+
+const grid = document.getElementById('grid');
+FLYERS.forEach((f, i) => {
+  const fig = document.createElement('figure');
+  fig.className = 'cell';
+  fig.dataset.cat = f.cat;
+  fig.innerHTML = `<div class="thumb">${flyerHTML(f, i)}</div>
+    <figcaption><b>${esc(f.nombre)}</b><span>${codigo(i)}</span></figcaption>`;
+  const name = fig.querySelector('.fl-name');
+  if (f.nombre.length > 18) name.classList.add('xlong');
+  else if (f.nombre.length > 13) name.classList.add('long');
+  fig.addEventListener('click', () => openLb(i, f));
+  grid.appendChild(fig);
+});
+
+/* Escala los flyers al ancho de cada miniatura */
+function fit() {
+  if (EXPORT) return;
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.querySelector('.flyer').style.transform = `scale(${t.clientWidth / 1080})`;
+  });
+}
+new ResizeObserver(fit).observe(grid);
+fit();
+
+/* Filtros */
+const pills = document.getElementById('pills');
+const cats = ['todos', ...new Set(FLYERS.map(f => f.cat))];
+cats.forEach((c, k) => {
+  const b = document.createElement('button');
+  b.className = 'pill' + (k === 0 ? ' active' : '');
+  b.textContent = c === 'todos' ? 'Todos' : CATEGORIAS[c].label;
+  b.onclick = () => {
+    pills.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    b.classList.add('active');
+    let n = 0;
+    grid.querySelectorAll('.cell').forEach(el => {
+      const show = c === 'todos' || el.dataset.cat === c;
+      el.style.display = show ? '' : 'none';
+      if (show) n++;
+    });
+    setCount(n);
+    fit();
+  };
+  pills.appendChild(b);
+});
+function setCount(n) { document.getElementById('count').textContent = `${n} flyer${n === 1 ? '' : 's'}`; }
+setCount(FLYERS.length);
+
+/* Lightbox con el PNG exportado */
+const lb = document.getElementById('lb');
+function openLb(i, f) {
+  const src = `png/${codigo(i)}.png`;
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lbImg').alt = f.nombre;
+  const dl = document.getElementById('lbDl');
+  dl.href = src;
+  dl.download = `coresan-${codigo(i)}.png`;
+  lb.classList.add('open');
+}
+document.getElementById('lbClose').onclick = () => lb.classList.remove('open');
+lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>
+</body>
+</html>
