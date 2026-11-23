@@ -1,0 +1,282 @@
+{
+ "rm-comino": {
+  "site": "www.masonline.com.ar",
+  "name": "Comino Reina Mora 25g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/202663-1200-1200/Comino-Reina-Mora-25g-1-30232.jpg?v=637845216018170000",
+  "link": "https://www.masonline.com.ar/comino-reina-mora-25g-2/p"
+ },
+ "rm-pimenton": {
+  "site": "www.masonline.com.ar",
+  "name": "Pimentón Seleccionado Reina Mora 25g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204555-1200-1200/front-view-5986.jpg?v=637850725879000000",
+  "link": "https://www.masonline.com.ar/pimenton-seleccionado-reina-mora-25g-2/p"
+ },
+ "rm-nuezmoscada": {
+  "site": "www.masonline.com.ar",
+  "name": "Nuez Moscada Molida Reina Mora 10g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204601-1200-1200/front-view-21870.jpg?v=637850726032500000",
+  "link": "https://www.masonline.com.ar/nuez-moscada-molida-reina-mora-10g-2/p"
+ },
+ "rm-canela": {
+  "site": "www.jumbo.com.ar",
+  "name": "Canela Reina Mora Tipo Molida Sin Atributo Sin Atributo",
+  "brand": "REINA MORA",
+  "img": "https://jumboargentina.vteximg.com.br/arquivos/ids/773584-1200-1200/Canela-Reina-Mora-Tipo-Molida-Sin-Atributo-Sin-Atributo-1-18248.jpg?v=638144157771600000",
+  "link": "https://www.jumbo.com.ar/canela-reina-mora/p"
+ },
+ "rm-laurel": {
+  "site": "www.masonline.com.ar",
+  "name": "Laurel Reina Mora 15g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/324193-1200-1200/Laurel-Reina-Mora-15-G-1-57298.jpg?v=638520106042330000",
+  "link": "https://www.masonline.com.ar/laurel-reina-mora-15-g-2/p"
+ },
+ "rm-perejil": {
+  "site": "www.masonline.com.ar",
+  "name": "Perejil Deshidratado Reina Mora 25g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204597-1200-1200/front-view-11924.jpg?v=637850726018430000",
+  "link": "https://www.masonline.com.ar/perejil-deshidratado-reina-mora-25g-2/p"
+ },
+ "rm-pizza": {
+  "site": "www.masonline.com.ar",
+  "name": "Condimento Para Pizza Reina Mora 25g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204594-1200-1200/front-view-21867.jpg?v=637850726009830000",
+  "link": "https://www.masonline.com.ar/condimento-para-pizza-reina-mora-25g-2/p"
+ },
+ "rm-arroz": {
+  "site": "www.masonline.com.ar",
+  "name": "Condimento Para Arroz Reina Mora 25g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/201330-1200-1200/0779426800466-01-28890.jpg?v=637844810413430000",
+  "link": "https://www.masonline.com.ar/condimento-para-arroz-reina-mora-25g-2/p"
+ },
+ "rm-polvohornear": {
+  "site": "www.masonline.com.ar",
+  "name": "Polvo Para Hornear Reina Mora 50g",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204600-1200-1200/front-view-11928.jpg?v=637850726026700000",
+  "link": "https://www.masonline.com.ar/polvo-para-hornear-reina-mora-50g-2/p"
+ },
+ "rm-vainilla": {
+  "site": "www.masonline.com.ar",
+  "name": "Esencia De Vainilla Reina Mora 110ml",
+  "brand": "Reina Mora",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/204593-1200-1200/front-view-5988.jpg?v=637850726007470000",
+  "link": "https://www.masonline.com.ar/esencia-de-vainilla-reina-mora-110cc-2/p"
+ },
+ "can-aceitemezcla": {
+  "site": "www.masonline.com.ar",
+  "name": "Aceite Mezcla Cañuelas 1.5 Ml",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/284569-1200-1200/Aceite-Ca-uela-Mezcla-1500ml-1-43595.jpg?v=638216085860000000",
+  "link": "https://www.masonline.com.ar/aceite-canuela-mezcla-1500ml-2/p"
+ },
+ "can-oliva": {
+  "site": "www.masonline.com.ar",
+  "name": "Aceite De Oliva Cañuelas 500 Ml",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/381462-1200-1200/Aceite-De-Oliva-Ca-uelas-500-Ml-0779218000518-1.jpg?v=639104706270500000",
+  "link": "https://www.masonline.com.ar/aceite-de-oliva-canuelas-500-ml-2/p"
+ },
+ "can-arrozlargo": {
+  "site": "www.masonline.com.ar",
+  "name": "Arroz Cañuelas Grano Largo 1 Kg",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/325037-1200-1200/Arroz-Ca-uelas-Grano-Largo-1-Kg-1-49924.jpg?v=638527017906300000",
+  "link": "https://www.masonline.com.ar/arroz-canuelas-grano-largo-1-kg-2/p"
+ },
+ "can-arrozparboil": {
+  "site": "www.masonline.com.ar",
+  "name": "Arroz Parboil Cañuelas 1 Kg",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/325524-1200-1200/Arroz-Parboil-Ca-uelas-1-Kg-1-57685.jpg?v=638530365681170000",
+  "link": "https://www.masonline.com.ar/arroz-parboil-canuelas-1-kg-2/p"
+ },
+ "can-arrozintegral": {
+  "site": "www.masonline.com.ar",
+  "name": "Arroz Integral Cañuelas 1 Kg",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/325525-1200-1200/Arroz-Integral-Ca-uelas-1-Kg-1-57686.jpg?v=638530365684170000",
+  "link": "https://www.masonline.com.ar/arroz-integral-canuelas-1-kg-2/p"
+ },
+ "can-harina000": {
+  "site": "www.masonline.com.ar",
+  "name": "Harina Cañuelas 000 1kg",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/217396-1200-1200/0779218013932-01-5234.jpg?v=637854084507600000",
+  "link": "https://www.masonline.com.ar/harina-canuelas-000-1kg-2/p"
+ },
+ "can-panrallado": {
+  "site": "www.masonline.com.ar",
+  "name": "Pan Rallado Cañuelas 500 G",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/337631-1200-1200/Pan-Rallado-Ca-uelas-500-G-0779218013697-1.jpg?v=638654763803270000",
+  "link": "https://www.masonline.com.ar/pan-rallado-canuelas-x-500gr-2/p"
+ },
+ "can-avena": {
+  "site": "www.masonline.com.ar",
+  "name": "Avena Tradicional Cañuelas 400 G",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/348394-1200-1200/Avena-Tradicional-Ca-uelas-400-G-0779218014496-1.jpg?v=638761884387770000",
+  "link": "https://www.masonline.com.ar/avena-instantanea-cannuelas-400-g/p"
+ },
+ "can-mayonesa": {
+  "site": "www.masonline.com.ar",
+  "name": "Mayonesa Cañuelas Con Jugo De Limón 500 Ml",
+  "brand": "Cañuelas",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/313929-1200-1200/Mayonesa-Ca-uelas-Con-Jugo-De-Lim-n-500-Ml-1-53661.jpg?v=638416533825630000",
+  "link": "https://www.masonline.com.ar/mayonesa-canuelas-con-jugo-de-limon-500-ml-2/p"
+ },
+ "led-mascabo": {
+  "site": "www.masonline.com.ar",
+  "name": "Azúcar Ledesma Rubio Mascabo 800 G",
+  "brand": "Ledesma",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/325849-1200-1200/0779254029460-01-11360.jpg?v=639306114200630000",
+  "link": "https://www.masonline.com.ar/azucar-rubio-mascabo-ledesma-800gr-2/p"
+ },
+ "led-light": {
+  "site": "www.masonline.com.ar",
+  "name": "Azúcar Ledesma Light 500 G",
+  "brand": "Ledesma",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/325848-1200-1200/0779254029375-02-5442.jpg?v=639306115119100000",
+  "link": "https://www.masonline.com.ar/azucar-light-ledesma-500gr-2/p"
+ },
+ "led-stevia": {
+  "site": "www.masonline.com.ar",
+  "name": "Edulcorante Ledesma Liquido Stevia 200ml",
+  "brand": "Ledesma",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/284574-1200-1200/Edulcorante-Ledesma-Liquido-Stevia-200ml-1-42766.jpg?v=638216085878130000",
+  "link": "https://www.masonline.com.ar/edulcorante-ledesma-liquido-stevia-200ml-2/p"
+ },
+ "cel-gruesa": {
+  "site": "www.masonline.com.ar",
+  "name": "Sal Gruesa Celusal Salero 1 Kg",
+  "brand": "Celusal",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/164286-1200-1200/Sal-Gruesa-Celusal-1-Kg-1-14430.jpg?v=637835135335430000",
+  "link": "https://www.masonline.com.ar/sal-gruesa-celusal-1-kg-3-2/p"
+ },
+ "cel-parrillera": {
+  "site": "www.masonline.com.ar",
+  "name": "Sal Entrefina Parrillera Celusal Paquete 1 Kg",
+  "brand": "Celusal",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/164275-1200-1200/0779100400005-1.jpg?v=637835135319300000",
+  "link": "https://www.masonline.com.ar/sal-entrefina-parrillera-celusal-1-kg-3/p"
+ },
+ "cel-light": {
+  "site": "www.masonline.com.ar",
+  "name": "Sal Fina Light Celusal Con Salero X 235 Gr",
+  "brand": "Celusal",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/163160-1200-1200/0779007200007-1.jpg?v=637835133833300000",
+  "link": "https://www.masonline.com.ar/sal-fina-light-celusal-con-salero-x-235-gr-2/p"
+ },
+ "pla-suave": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Suave Playadito 1kg",
+  "brand": "Playadito",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/225098-1200-1200/0779370400092-01-5802.jpg?v=637855394802470000",
+  "link": "https://www.masonline.com.ar/yerba-mate-suave-playadito-1kg-2/p"
+ },
+ "pla-sinpalo": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Playadito Sin Palo X 500g",
+  "brand": "Playadito",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/203363-1200-1200/0779370400088-01-11728.jpg?v=637850616291070000",
+  "link": "https://www.masonline.com.ar/yerba-mate-playadito-sin-palo-x-500g-2/p"
+ },
+ "pla-hierbas": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Compuesta Playadito Hierbas Con Palo 500 Gr",
+  "brand": "Playadito",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/165232-1200-1200/0779370400050-1.jpg?v=637835136851330000",
+  "link": "https://www.masonline.com.ar/yerba-mate-compuesta-playadito-hierbas-con-palo-500-gr-2/p"
+ },
+ "pla-matecocido": {
+  "site": "www.masonline.com.ar",
+  "name": "Mate Cocido Playadito En Saquitos X 50 Un",
+  "brand": "Playadito",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/241010-1200-1200/front-view-11727.jpg?v=637867895778430000",
+  "link": "https://www.masonline.com.ar/mate-cocido-playadito-en-saquitos-x-50-un-2/p"
+ },
+ "tar-tenegro": {
+  "site": "www.masonline.com.ar",
+  "name": "Té Negro Taragüi 50u",
+  "brand": "Taragui",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/328232-1200-1200/0779038780014-01-9800.jpg?v=638562441672100000",
+  "link": "https://www.masonline.com.ar/te-tarag-i-clasico-filtro-diamantado-x-50saq-2/p"
+ },
+ "tar-matecocido": {
+  "site": "www.masonline.com.ar",
+  "name": "Mate Cocido Taragui 50u",
+  "brand": "Taragui",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/328229-1200-1200/0779038780006-01-9799.jpg?v=638562441658400000",
+  "link": "https://www.masonline.com.ar/mate-cocido-tarag-i-filtro-diamantado-50saq-2/p"
+ },
+ "tar-teverde": {
+  "site": "www.masonline.com.ar",
+  "name": "Té Verde Taragui 20 Saquitos",
+  "brand": "Taragui",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/328171-1200-1200/front-view-27273.jpg?v=638560713689670000",
+  "link": "https://www.masonline.com.ar/te-verde-taragui-x-20sq-2/p"
+ },
+ "tar-sinpalo": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Taragui 4flex Sin Palo 1kg",
+  "brand": "Taragui",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/206650-1200-1200/0779038701349-01-27275.jpg?v=637850834733200000",
+  "link": "https://www.masonline.com.ar/yerba-mate-taragui-4flex-sin-palo-1kg-2/p"
+ },
+ "pip-despalada": {
+  "site": "www.jumbo.com.ar",
+  "name": "Yerba Mate Despalada 500 Grs Piporé",
+  "brand": "PIPORÉ",
+  "img": "https://jumboargentina.vteximg.com.br/arquivos/ids/869552-1200-1200/Yerba-Mate-Pipor-Sin-Palo-500-Gr-1-33552.jpg?v=638842270017170000",
+  "link": "https://www.jumbo.com.ar/yerba-mate-pipore-sin-palo-500-gr/p"
+ },
+ "pip-serranas": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Hierbas Serranas Pipore 500gr",
+  "brand": "Pipore",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/313388-1200-1200/Yerba-Mate-Hierbas-Serranas-Pipore-500gr-1-53328.jpg?v=638412321796230000",
+  "link": "https://www.masonline.com.ar/yerba-mate-hierbas-serranas-pipore-500gr-2/p"
+ },
+ "pip-sublime": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Pipore Sublime 500g",
+  "brand": "Pipore",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/244299-1200-1200/Yerba-Mate-Pipore-Sublime-500g-1-30307.jpg?v=637870063112930000",
+  "link": "https://www.masonline.com.ar/yerba-mate-pipore-sublime-500g-2/p"
+ },
+ "pip-naranja": {
+  "site": "www.masonline.com.ar",
+  "name": "Yerba Mate Naranja Pipore 500gr",
+  "brand": "Pipore",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/312710-1200-1200/Yerba-Mate-Naranja-Pipore-500gr-1-53330.jpg?v=638406921686370000",
+  "link": "https://www.masonline.com.ar/yerba-mate-naranja-pipore-500gr-2/p"
+ },
+ "smi-original": {
+  "site": "www.carrefour.com.ar",
+  "name": "Vodka Smirnoff 700 cc",
+  "brand": "Smirnoff",
+  "img": "https://carrefourar.vteximg.com.br/arquivos/ids/862228-1200-1200/7791250001345_01.jpg?v=639130846028770000",
+  "link": "https://www.carrefour.com.ar/vodka-smirnoff-700-cc/p"
+ },
+ "smi-greenapple": {
+  "site": "www.masonline.com.ar",
+  "name": "Vodka Green Apple Smirnoff 700 Cc",
+  "brand": "Smirnoff",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/329705-1200-1200/front-view-28018.jpg?v=638578966248270000",
+  "link": "https://www.masonline.com.ar/vodka-green-apple-smirnoff-700-cc-2/p"
+ },
+ "smi-tropical": {
+  "site": "www.masonline.com.ar",
+  "name": "Vodka Smirnoff Tropical Fruits 700ml",
+  "brand": "Smirnoff",
+  "img": "https://masonlineprod.vteximg.com.br/arquivos/ids/329730-1200-1200/Vodka-Smirnoff-Tropical-Fruits-700ml-1-36487.jpg?v=638578966348630000",
+  "link": "https://www.masonline.com.ar/vodka-smirnoff-tropical-fruits-700ml-2/p"
+ }
+}

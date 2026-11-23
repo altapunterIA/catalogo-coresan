@@ -84,7 +84,7 @@ body { font-family:'Barlow',sans-serif; background:var(--surface); color:var(--d
 }
 .fl-watermark {
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-8deg);
-  font-weight:800; font-size:230px; color:var(--ink); opacity:.08; white-space:nowrap; letter-spacing:4px;
+  font-weight:800; font-size:200px; color:var(--ink); opacity:.08; white-space:nowrap; letter-spacing:4px;
 }
 .fl-chip {
   position:absolute; top:44px; left:48px; background:var(--maroon); color:var(--gold);
@@ -96,9 +96,7 @@ body { font-family:'Barlow',sans-serif; background:var(--surface); color:var(--d
   font-weight:700; font-size:32px; letter-spacing:3px;
 }
 .fl-visual { position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; height:760px; margin-top:40px; filter:drop-shadow(0 26px 30px rgba(0,0,0,.28)); }
-.fl-visual svg { display:block; transform:scale(1.22); transform-origin:50% 100%; }
-.fl-visual svg[viewBox="0 0 300 700"] { transform:scale(1.04); }
-.fl-foto { max-height:700px; max-width:900px; object-fit:contain; }
+.fl-foto { display:block; width:820px; height:660px; object-fit:contain; object-position:50% 100%; }
 .fl-floor { position:absolute; bottom:50px; left:50%; width:680px; height:60px; transform:translateX(-50%);
             background:radial-gradient(ellipse, rgba(0,0,0,.28), transparent 70%); z-index:1; }
 
@@ -106,7 +104,7 @@ body { font-family:'Barlow',sans-serif; background:var(--surface); color:var(--d
   flex:1; padding:56px 76px 44px; color:var(--cream); display:flex; flex-direction:column;
   background:linear-gradient(180deg, var(--maroon) 0%, var(--maroon-2) 100%);
 }
-.fl-marca { font-weight:700; font-size:38px; letter-spacing:4px; color:var(--cream); opacity:.8; text-transform:uppercase; }
+.fl-marca { font-weight:700; font-size:44px; letter-spacing:6px; color:var(--cream); opacity:.85; text-transform:uppercase; margin-bottom:6px; }
 .fl-name { font-weight:800; font-size:118px; line-height:.95; color:var(--gold); text-transform:uppercase; letter-spacing:1px; }
 .fl-name.long { font-size:96px; }
 .fl-name.xlong { font-size:82px; }
@@ -142,7 +140,7 @@ body.export figcaption { display:none; }
 
 <section class="intro">
   <h1>FLYERS <span>STOCK</span></h1>
-  <p>40 productos nuevos listos para cuando salgan a producción. Sin etiquetas de oferta ni de fiestas. Tocá un flyer para verlo en grande y descargarlo.</p>
+  <p>40 productos reales de nuestras marcas que todavía no están en el catálogo, listos para cuando salgan a producción. Sin etiquetas de oferta ni de fiestas. Tocá un flyer para verlo en grande y descargarlo.</p>
   <div class="pills" id="pills"></div>
   <div class="count" id="count"></div>
 </section>
@@ -169,7 +167,7 @@ FLYERS.forEach((f, i) => {
   fig.className = 'cell';
   fig.dataset.cat = f.cat;
   fig.innerHTML = `<div class="thumb">${flyerHTML(f, i)}</div>
-    <figcaption><b>${esc(f.nombre)}</b><span>${codigo(i)}</span></figcaption>`;
+    <figcaption><b>${esc(f.marca)} · ${esc(f.nombre)}</b><span>${codigo(i)}</span></figcaption>`;
   const name = fig.querySelector('.fl-name');
   if (f.nombre.length > 18) name.classList.add('xlong');
   else if (f.nombre.length > 13) name.classList.add('long');
