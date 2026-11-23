@@ -13,6 +13,8 @@ const { chromium } = require('playwright');
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
   await page.goto('file://' + path.join(dir, 'index.html') + '?export', { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => [...document.querySelectorAll('.fl-photo img')].every(i => i.classList.contains('wide') || i.classList.contains('tall')));
+  await page.waitForTimeout(300);
 
   const ids = await page.$$eval('.flyer', els => els.map(e => e.id));
   for (const id of ids) {

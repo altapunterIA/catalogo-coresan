@@ -1,6 +1,6 @@
 # FLYERS STOCK — CORESAN
 
-40 flyers de **productos reales** de las marcas que ya trabajamos (Cañuelas, Ledesma, Celusal, Reina Mora, Playadito, Taragüi, Piporé, Smirnoff) que **todavía no están en el catálogo**. Sin etiquetas de oferta ni de fiestas: quedan disponibles para cuando salgan a producción.
+40 flyers de **productos reales** de las marcas que ya trabajamos (Cañuelas, Ledesma, Celusal, Reina Mora, Playadito, Taragüi, Piporé, Smirnoff) que **todavía no están en el catálogo**. Diseño Coresan (fondo rojo con hexágonos, marca, franja con el producto, foto oficial y logo), sin etiquetas de oferta ni de fiestas: quedan disponibles para cuando salgan a producción.
 
 - **Galería web (celular / PC):** `flyers-stock/index.html` — en el sitio: https://catalogo-coresan.vercel.app/flyers-stock/ (una vez que esté en `main`).
 - **PNG listos para publicar (1080×1920, formato historia):** carpeta [`png/`](png/).
